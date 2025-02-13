@@ -1,0 +1,24 @@
+<h1><%= @borrower.name %></h1>
+<p><strong>Email:</strong> <%= @borrower.email %></p>
+
+<h2>Borrowed Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Book Title</th>
+      <th>Borrowed At</th>
+      <th>Returned At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrower.borrowings.each do |borrowing| %>
+      <tr>
+        <td><%= link_to borrowing.book.title, book_path(borrowing.book) %></td>
+        <td><%= borrowing.borrowed_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= borrowing.returned_at ? borrowing.returned_at.strftime("%Y-%m-%d %H:%M") : "Not Returned" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Borrowers', borrowers_path, class: "btn btn-secondary" %>

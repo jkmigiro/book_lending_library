@@ -1,0 +1,39 @@
+<h1>All Borrowers</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Book Borrowed</th>
+      <th>Borrowed At</th>
+      <th>Returned At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrowings.each_with_index do |borrowing, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= borrowing.borrower_name %></td>
+        <td><%= borrowing.book.title %></td>
+        <td><%= borrowing.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td>
+          <% if borrowing.returned_at.present? %>
+            <%= borrowing.returned_at.strftime("%Y-%m-%d %H:%M") %>
+          <% else %>
+            <span class="text-danger">Not returned</span>
+          <% end %>
+        </td>
+        <td>
+          <% unless borrowing.returned_at %>
+          <%= link_to "Return Book", return_book_borrowing_path(borrowing)%>
+
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back to Books", books_path, class: "btn btn-secondary" %>

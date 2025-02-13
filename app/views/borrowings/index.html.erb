@@ -1,0 +1,23 @@
+<h1>Borrowing Records</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Borrower</th>
+      <th>Book</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrowings.each do |borrowing| %>
+      <tr>
+        <td><%= borrowing.borrower_name %></td>
+        <td><%= borrowing.book.title %></td>
+        <td>
+          <%= link_to 'View', borrowing_path(borrowing)%> |
+          <%= link_to 'Delete', borrowing_path(borrowing),data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Borrowing', new_borrowing_path %>

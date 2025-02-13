@@ -1,0 +1,8 @@
+<h1>Borrowing Details</h1>
+
+<p><strong>Borrower:</strong> <%= @borrowing.borrower_name %></p>
+<p><strong>Book:</strong> <%= @borrowing.book.title %></p>
+<p><strong>Borrowed At:</strong> <%= @borrowing.created_at.strftime("%d %b %Y %H:%M") %></p>
+<p><strong>Returned At:</strong> <%= @borrowing.returned_at ? @borrowing.returned_at.strftime("%d %b %Y %H:%M") : "Not Returned" %></p>
+
+<%= link_to 'Back to Borrowing Records', borrowings_path, class: "btn btn-secondary" %>
