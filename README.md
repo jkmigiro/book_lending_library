@@ -60,6 +60,7 @@
 - `GET /borrowings/new` - New borrowing form
 - `POST /borrowings` - Create a borrowing
 - `GET /borrowings/:id/return_book` - Return a borrowed book
+- `DELETE /borrowings/:id` - Delete a borrowing
 ### Borrowers
 - `GET /borrowers` - List all borrowers
 
