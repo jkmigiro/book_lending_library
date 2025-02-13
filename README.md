@@ -63,6 +63,12 @@
 - `DELETE /borrowings/:id` - Delete a borrowing
 ### Borrowers
 - `GET /borrowers` - List all borrowers
+  
+## Running Tests
+- Run all tests:
+  ```sh
+  rails test
+  ```  
 
 
 ## License
