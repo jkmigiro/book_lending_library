@@ -50,4 +50,4 @@ end
 
 
 gem "activerecord", "~> 8.0"
-gem "sqlite3", "~> 2.5"
+gem "sqlite3", "~> 2.6"
